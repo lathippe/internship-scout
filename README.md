@@ -16,11 +16,14 @@ It runs on GitHub Actions in your own private repo, so your laptop can be off. E
 
 You need [Claude Code](https://claude.com/claude-code), a GitHub account, and a Gmail address.
 
-```
-/plugin marketplace add OWNER/internship-scout
-/plugin install internship-scout@internship-scout
-/scout-setup
-```
+1. Unzip `internship-scout.zip` somewhere you'll keep it, for example your home folder.
+2. In Claude Code, run:
+   ```
+   /plugin marketplace add ~/internship-scout
+   /plugin install internship-scout@internship-scout
+   ```
+   (Use the real path to the unzipped folder.) Restart Claude Code if it asks.
+3. Run `/scout-setup`.
 
 The setup chat takes about 15 minutes and does the rest: creates your private repo, connects your keys (you type secrets into GitHub directly, never into the chat), and runs the first search.
 
