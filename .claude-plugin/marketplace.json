@@ -1,0 +1,14 @@
+{
+  "name": "internship-scout",
+  "owner": {
+    "name": "Alfiia"
+  },
+  "plugins": [
+    {
+      "name": "internship-scout",
+      "source": "./",
+      "description": "Daily internship scout with a setup chat, scored matches, urgent pings, interview tracking, and a dashboard."
+    }
+  ],
+  "description": "Internship scout: a daily internship search that learns from you."
+}

@@ -1,0 +1,7 @@
+{
+  "name": "internship-scout",
+  "version": "1.0.0",
+  "description": "A daily internship search that learns from you: a setup chat, morning email with scored matches, urgent pings, interview tracking, and a dashboard.",
+  "author": {"name": "Alfiia"},
+  "keywords": ["internships", "job search", "quant", "careers"]
+}

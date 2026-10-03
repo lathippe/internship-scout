@@ -1,0 +1,29 @@
+{
+  "name": "Alexandra",
+  "headline": "Quant research internships in New York, summer 2027",
+  "who": "MS Financial Engineering, NYU Tandon · F-1, CPT from May 2027",
+  "goal": "A quant research internship at a hedge fund. If not, real research experience during the degree.",
+  "background": "Paste a short CV summary here: degrees, research, tools, languages.",
+  "streams": ["summer", "campus"],
+  "tracks": {"research": 1.0, "risk": 0.8, "strats": 0.8, "dev": 0.6, "data": 0.6, "trading": 0.4, "other": 0.3},
+  "firm_types": {"hf": 1.0, "bank": 0.8, "prop": 0.8, "am": 0.8, "fin": 0.6, "campus": 1.0, "other": 0.5},
+  "dream_firms": [],
+  "skip_firms": [],
+  "weights": {"fit": 0.35, "mentor": 0.35, "brand": 0.15, "pay": 0.15},
+  "hard_filters": {
+    "locations": ["new york", "nyc", "jersey city", "manhattan"],
+    "terms": ["Summer 2027"],
+    "degree": "Master's",
+    "needs_sponsorship_later": true,
+    "exclude_words": []
+  },
+  "visa": {"status": "F-1", "cpt_from": "May 2027", "notes": "On-campus work up to 20 h/week allowed now"},
+  "notes": [],
+  "min_score_digest": 7,
+  "urgent": {"min_score": 9, "deadline_hours": 72},
+  "delivery": {"urgent_channel": "email", "dashboard_url": "", "daily_even_if_empty": false},
+  "model": "claude-opus-5-5",
+  "effort": "low",
+  "max_scored_per_run": 40,
+  "history": []
+}

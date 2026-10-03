@@ -1,0 +1,47 @@
+name: scout
+
+on:
+  schedule:
+    - cron: "20 11 * * *"   # 7:20 am New York (EDT); 6:20 am in winter
+    - cron: "20 18 * * 1-5" # 2:20 pm New York on weekdays, catches new postings and emails
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scout
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Run the scout
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SCOUT_EMAIL: ${{ secrets.SCOUT_EMAIL }}
+          SCOUT_EMAIL_APP_PASSWORD: ${{ secrets.SCOUT_EMAIL_APP_PASSWORD }}
+          SCOUT_EMAIL_TO: ${{ secrets.SCOUT_EMAIL_TO }}
+          WHATSAPP_TOKEN: ${{ secrets.WHATSAPP_TOKEN }}
+          WHATSAPP_PHONE_ID: ${{ secrets.WHATSAPP_PHONE_ID }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+          WHATSAPP_TEMPLATE: ${{ secrets.WHATSAPP_TEMPLATE }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python -m scout run
+      - name: Save results
+        run: |
+          git config user.name "scout"
+          git config user.email "scout@users.noreply.github.com"
+          git add data docs brief.json
+          git diff --cached --quiet || git commit -m "scout run $(date -u +%F)"
+          git pull --rebase --autostash
+          git push
